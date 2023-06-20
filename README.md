@@ -1,6 +1,6 @@
-# RabbitScrape
+# rabbitmq-spider
 
-RabbitScrape is an open-source tool that helps with web scraping by using RabbitMQ and Scrapy to distribute and scale
+rabbitmq-spider is an open-source tool that helps with web scraping by using RabbitMQ and Scrapy to distribute and scale
 scraping tasks across multiple instances.
 
 Inpsired by [scrapy-redis](https://github.com/rmax/scrapy-redis).
@@ -13,7 +13,7 @@ Inpsired by [scrapy-redis](https://github.com/rmax/scrapy-redis).
 ## Installation 
 
 ```shell
-pip install RabbitScrape
+pip install rabbitmq_spider
 ```
 ## Usage
 
@@ -34,21 +34,23 @@ SPIDER_MIDDLEWARES = {
 ### 2.Add RabbitMQSpider to your spider
 
 ```python
-from rabbit_scrape import RabbitMQSpider
 import json
+
+from rabbitmq_spider.spiders import RabbitMQSpider
 from scrapy import Request
+
 
 class YourSpider(RabbitMQSpider):
     """Demo"""
     name = 'demo'
     api = 'demo.queue'
-    
+
     def make_request_from_data(self, data):
         msg_dict = json.loads(data)
         url = msg_dict['url']
-    
+
         return Request(url)
-    
+
     def parse(self, response, **kwargs):
         self.logger.debug(response.status)
 ```
