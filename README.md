@@ -43,7 +43,7 @@ from scrapy import Request
 class YourSpider(RabbitMQSpider):
     """Demo"""
     name = 'demo'
-    api = 'demo.queue'
+    routing_key = 'demo.queue'
 
     def make_request_from_data(self, data):
         msg_dict = json.loads(data)
