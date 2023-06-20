@@ -3,7 +3,7 @@ from time import sleep
 from scrapy import Spider, signals
 from scrapy.exceptions import DontCloseSpider
 
-from RabbitScrape import connection
+from . import connection
 
 
 class RabbitMQSpider(Spider):

@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+[project]
+name = "RabbitScrape"
+version = "0.0.1"
+authors = [
+    { name = "Nobby Tang", email = "cnadytzar@gmail.com" },
+]
+description = "RabbitScrape is an open-source tool that helps with web scraping by using RabbitMQ and Scrapy to distribute and scale scraping tasks across multiple instances."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "scrapy>2.0",
+    "pika"
+]
+
+
+[project.urls]
+"Homepage" = "https://github.com/nobbbbby/RabbitScrape"
+"Bug Tracker" = "https://github.com/nobbbbby/RabbitScrape/issues"
